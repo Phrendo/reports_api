@@ -1,6 +1,8 @@
 Tools/position_log.csv
 Tokens/
 
+nginx.mk
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -125,3 +127,4 @@ Tools/__pycache__/**
 
 parsed_data.csv
 parsed_data_**.csv
+nginx.md

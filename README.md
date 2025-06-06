@@ -15,3 +15,4 @@
    uvicorn app.main:app --reload
    ```
 
+GET http://localhost:8000/reports/em-envelope/2025-06-04
