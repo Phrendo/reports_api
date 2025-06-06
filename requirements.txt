@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pydantic
+pandas
+pyodbc
+python-dotenv
+pytest
