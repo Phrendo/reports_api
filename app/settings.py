@@ -1,5 +1,9 @@
 from typing import List, Union
 from pydantic import BaseSettings, AnyHttpUrl, validator
+# app/settings.py
+
+import os
+from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     DATABASE_URL: str
@@ -12,7 +16,12 @@ class Settings(BaseSettings):
         if isinstance(v, list):
             return v
         return []
+    CORS_ORIGINS: str = ""
 
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        return [o.strip() for o in self.CORS_ORIGINS.split(",") if o.strip()]
