@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, time
 from typing import List
 from app.schemas.em_models import EmRecord
 
