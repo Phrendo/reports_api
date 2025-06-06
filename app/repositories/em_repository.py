@@ -6,12 +6,12 @@ from app.schemas.em_models import EmRecord
 from app.db.connection import get_db_connection
 
 class SqlEmRepository(IReportRepository):
-    def get_em_envelope(self, report_date: date) -> List[EmRecord]:
+    def get_em_envelope(self, report_date: date, report_time: time) -> List[EmRecord]:
         sql = """SELECT T, Mark, LowerEM, UpperEM, LEM, UEM, V
-FROM WEBOPT.REPORTS.TF_EM_BAND_VIOLATIONS(?)
-"""
+            FROM WEBOPT.REPORTS.TF_EM_BAND_VIOLATIONS(?, ?)
+            """
         conn = get_db_connection()
-        df = pd.read_sql_query(sql, conn, params=[report_date])
+        df = pd.read_sql_query(sql, conn, params=[report_date, report_time])
         conn.close()
         records = [EmRecord(**row) for row in df.to_dict(orient="records")]
         return records

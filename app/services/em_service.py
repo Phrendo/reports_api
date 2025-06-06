@@ -7,5 +7,5 @@ class EmService:
     def __init__(self, repository: IReportRepository):
         self.repository = repository
 
-    def get_em_envelope(self, report_date: date) -> List[EmRecord]:
-        return self.repository.get_em_envelope(report_date)
+    def get_em_envelope(self, report_date: date, report_time: time) -> List[EmRecord]:
+        return self.repository.get_em_envelope(report_date, report_time)
