@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, time
 from typing import List
 import pandas as pd
 from app.repositories.interfaces import IReportRepository
